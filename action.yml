@@ -1,0 +1,46 @@
+name: Run Deployment Step
+author: Colin Parsons
+description:
+  Run a Bash deployment command, upload a status badge gist with the
+  result, and optionally print a comment about the deployment step.
+branding:
+  icon: check-circle
+  color: blue
+
+inputs:
+  command:
+    description: The command to run. Must be a Bash command.
+    required: true
+  gist-id:
+    description: The ID of the gist to which to upload the status badge.
+    required: true
+  badge-label:
+    description: The label of the status badge.
+    required: true
+  comment:
+    description:
+      Any comment about this step you want to show in your workflow.
+    required: false
+
+runs:
+  using: composite
+
+  steps:
+    - name: Run command
+      id: run-command
+      shell: bash
+      run: ${{ inputs.command }}
+
+    - name: Upload status badge
+      if: always()
+      shell: bash
+      uses: colinparsonsme/upload-status-badge-gist@v1
+      with:
+        gist-id: ${{ inputs.gist-id }}
+        label: ${{ inputs.badge-label }}
+        outcome: ${{ steps.run-command.outcome }}
+
+    - name: Echo comment
+      shell: bash
+      if: inputs.comment != '' && always()
+      run: echo "${{ inputs.comment }}"
