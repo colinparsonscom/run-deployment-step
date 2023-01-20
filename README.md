@@ -1,7 +1,7 @@
 # run-deployment-step
 
 GitHub action to run a Bash deployment command, upload a status badge gist with
-the result, and optionally print a comment about the deployment step.
+the result, and optionally print a comment about the command.
 
 ## Usage
 

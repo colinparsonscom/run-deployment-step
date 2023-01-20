@@ -2,7 +2,7 @@ name: Run Deployment Step
 author: Colin Parsons
 description:
   Run a Bash deployment command, upload a status badge gist with the
-  result, and optionally print a comment about the deployment step.
+  result, and optionally print a comment about the command.
 branding:
   icon: check-circle
   color: blue
