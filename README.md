@@ -29,6 +29,7 @@ jobs:
         with:
           command: npm ci --production
           gist-id: ${{ secrets.INSTALL_DEPENDENCIES_BADGE_GIST_ID }}
+          badge-label: Dependencies install
           comment:
             "We use `npm ci` instead of `npm i` because this step is running in
             a CI environment, and we don't want to update the package.json."
