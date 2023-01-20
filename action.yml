@@ -1,8 +1,8 @@
 name: Run Deployment Step
 author: Colin Parsons
 description:
-  Run a Bash deployment command, upload a status badge gist with the
-  result, and optionally print a comment about the command.
+  Run a Bash deployment command, upload a status badge gist with the result, and
+  optionally print a comment about the command.
 branding:
   icon: check-circle
   color: blue
@@ -18,8 +18,7 @@ inputs:
     description: The label of the status badge.
     required: true
   comment:
-    description:
-      Any comment about this step you want to show in your workflow.
+    description: Any comment about this step you want to show in your workflow.
     required: false
 
 runs:
@@ -34,7 +33,7 @@ runs:
     - name: Upload status badge
       if: always()
       shell: bash
-      uses: colinparsonsme/upload-status-badge-gist@v1
+      uses: colinparsonsme/upload-status-badge@v1
       with:
         gist-id: ${{ inputs.gist-id }}
         label: ${{ inputs.badge-label }}
