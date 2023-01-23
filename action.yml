@@ -36,7 +36,7 @@ runs:
       uses: colinparsonsme/upload-status-badge@v1
       with:
         gist-id: ${{ inputs.gist-id }}
-        label: ${{ inputs.badge-label }}
+        badge-label: ${{ inputs.badge-label }}
         outcome: ${{ steps.run-command.outcome }}
 
     - name: Echo comment
