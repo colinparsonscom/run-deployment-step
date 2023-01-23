@@ -27,6 +27,7 @@ jobs:
       - name: Install dependencies
         uses: colinparsonsme/run-deployment-step@v1
         with:
+          auth: ${{ secrets.GITHUB_GIST_TOKEN }}
           command: npm ci --production
           gist-id: ${{ secrets.INSTALL_DEPENDENCIES_BADGE_GIST_ID }}
           badge-label: Dependencies install
