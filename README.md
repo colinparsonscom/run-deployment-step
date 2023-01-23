@@ -29,7 +29,7 @@ jobs:
         with:
           auth: ${{ secrets.GITHUB_GIST_TOKEN }}
           command: npm ci --production
-          gist-id: ${{ secrets.INSTALL_DEPENDENCIES_BADGE_GIST_ID }}
+          gist-id: dependencies-install-gist
           badge-label: Dependencies install
           comment:
             "We use `npm ci` instead of `npm i` because this step is running in
